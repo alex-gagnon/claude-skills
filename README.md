@@ -83,7 +83,7 @@ git tag v1.0.0
 git push origin v1.0.0
 ```
 
-Requires `NPM_TOKEN` and `PYPI_API_TOKEN` secrets set in GitHub repo settings.
+Requires an `NPM_TOKEN` secret set in GitHub repo settings. PyPI publishing uses [Trusted Publishers (OIDC)](https://docs.pypi.org/trusted-publishers/) — no API token needed, but you must configure the GitHub Actions publisher on PyPI first.
 
 ## Adding a Skill
 
