@@ -35,30 +35,6 @@ Promptfoo requires Node.js. Install it with `npm install -g promptfoo` or use `n
 
 ## Installation
 
-### npm
-
-```bash
-npm install claude-skills
-```
-
-```js
-const { skillsDir } = require('claude-skills');
-// use skillsDir as skillsDirectory in ~/.claude/settings.json
-```
-
-### pip
-
-```bash
-pip install claude-skills
-```
-
-```python
-from claude_skills import skills_dir
-# use skills_dir as skillsDirectory in ~/.claude/settings.json
-```
-
-### Git (manual)
-
 Clone the repo and point Claude Code's `skillsDirectory` at the `skills/` folder:
 
 ```jsonc
@@ -73,17 +49,6 @@ Or symlink:
 ```bash
 ln -s /path/to/this/repo/skills ~/.claude/skills
 ```
-
-## Publishing
-
-Releases are published to npm and PyPI automatically when a version tag is pushed:
-
-```bash
-git tag v1.0.0
-git push origin v1.0.0
-```
-
-Requires an `NPM_TOKEN` secret set in GitHub repo settings. PyPI publishing uses [Trusted Publishers (OIDC)](https://docs.pypi.org/trusted-publishers/) — no API token needed, but you must configure the GitHub Actions publisher on PyPI first.
 
 ## Adding a Skill
 
