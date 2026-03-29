@@ -1,4 +1,4 @@
-# CLAUDE.md — Skills Repository
+# CLAUDE.md — SDET Marketplace
 
 This repository stores Claude Code skills — reusable prompt-based capabilities invoked via slash commands (e.g., `/source-control`, `/grill`). Skills live in `skills/<skill-name>/SKILL.md`. For a list of available skills, see README.md.
 

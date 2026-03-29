@@ -1,4 +1,4 @@
-# Skills
+# SDET Marketplace
 
 A collection of Claude Code skills for common development workflows. Skills are invoked as slash commands in any Claude Code session where this repository is configured as the skills directory.
 
