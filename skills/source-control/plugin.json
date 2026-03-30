@@ -1,13 +1,9 @@
 {
   "name": "source-control",
-  "type": "skill",
   "version": "1.0.0",
   "description": "Handles git workflow operations — committing staged changes, creating or switching branches, and summarizing diffs — routing to the right sub-behavior from context.",
-  "tags": ["git"],
-  "author": "alex-gagnon",
+  "author": { "name": "alex-gagnon" },
   "license": "MIT",
-  "entrypoint": "SKILL.md",
-  "tier": 3,
-  "supportFiles": ["commit.md", "branch.md", "summarize-diff.md"],
-  "tests": "tests.md"
+  "repository": "https://github.com/alex-gagnon/sdet-marketplace",
+  "tags": ["git"]
 }

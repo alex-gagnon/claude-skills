@@ -1,13 +1,9 @@
 {
   "name": "test",
-  "type": "skill",
   "version": "1.0.0",
   "description": "Runs quality evaluations against one or all skills using their tests.md fixture files, scoring format compliance and semantic correctness.",
-  "tags": ["special"],
-  "author": "alex-gagnon",
+  "author": { "name": "alex-gagnon" },
   "license": "MIT",
-  "entrypoint": "SKILL.md",
-  "tier": 2,
-  "supportFiles": [],
-  "tests": null
+  "repository": "https://github.com/alex-gagnon/sdet-marketplace",
+  "tags": ["special"]
 }

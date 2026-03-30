@@ -1,13 +1,9 @@
 {
   "name": "review-pr",
-  "type": "skill",
   "version": "1.0.0",
   "description": "Reviews a pull request for logic errors, security issues, test coverage, and style — producing structured inline feedback.",
-  "tags": ["review"],
-  "author": "alex-gagnon",
+  "author": { "name": "alex-gagnon" },
   "license": "MIT",
-  "entrypoint": "SKILL.md",
-  "tier": 3,
-  "supportFiles": ["checklist.md"],
-  "tests": "tests.md"
+  "repository": "https://github.com/alex-gagnon/sdet-marketplace",
+  "tags": ["review"]
 }

@@ -1,13 +1,9 @@
 {
   "name": "plugin-architect",
-  "type": "agent",
   "version": "1.0.0",
   "description": "Assists with designing and scaffolding new marketplace plugins (skills, agents, and MCP servers) following marketplace conventions.",
-  "tags": ["special", "design"],
-  "author": "alex-gagnon",
+  "author": { "name": "alex-gagnon" },
   "license": "MIT",
-  "entrypoint": "AGENT.md",
-  "tier": 2,
-  "supportFiles": [],
-  "tests": "tests.md"
+  "repository": "https://github.com/alex-gagnon/sdet-marketplace",
+  "tags": ["special", "design"]
 }

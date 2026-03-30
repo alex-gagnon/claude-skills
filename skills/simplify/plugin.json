@@ -1,13 +1,9 @@
 {
   "name": "simplify",
-  "type": "skill",
   "version": "1.0.0",
   "description": "Refactors a code block or file to reduce complexity, improve readability, and eliminate redundancy without changing behavior.",
-  "tags": ["quality"],
-  "author": "alex-gagnon",
+  "author": { "name": "alex-gagnon" },
   "license": "MIT",
-  "entrypoint": "SKILL.md",
-  "tier": 3,
-  "supportFiles": ["patterns.md"],
-  "tests": "tests.md"
+  "repository": "https://github.com/alex-gagnon/sdet-marketplace",
+  "tags": ["quality"]
 }

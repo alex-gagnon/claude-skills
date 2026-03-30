@@ -1,13 +1,9 @@
 {
   "name": "explain",
-  "type": "skill",
   "version": "1.0.0",
   "description": "Explains a piece of code, architecture decision, or technical concept in plain language calibrated to the user's apparent expertise level.",
-  "tags": ["docs"],
-  "author": "alex-gagnon",
+  "author": { "name": "alex-gagnon" },
   "license": "MIT",
-  "entrypoint": "SKILL.md",
-  "tier": 2,
-  "supportFiles": [],
-  "tests": "tests.md"
+  "repository": "https://github.com/alex-gagnon/sdet-marketplace",
+  "tags": ["docs"]
 }

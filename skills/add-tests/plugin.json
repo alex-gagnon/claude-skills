@@ -1,13 +1,9 @@
 {
   "name": "add-tests",
-  "type": "skill",
   "version": "1.0.0",
   "description": "Generates tests for an existing function or module, covering happy paths, edge cases, and error conditions.",
-  "tags": ["quality"],
-  "author": "alex-gagnon",
+  "author": { "name": "alex-gagnon" },
   "license": "MIT",
-  "entrypoint": "SKILL.md",
-  "tier": 3,
-  "supportFiles": ["test-strategies.md"],
-  "tests": "tests.md"
+  "repository": "https://github.com/alex-gagnon/sdet-marketplace",
+  "tags": ["quality"]
 }

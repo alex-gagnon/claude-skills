@@ -1,13 +1,9 @@
 {
   "name": "grill",
-  "type": "skill",
   "version": "1.0.0",
   "description": "Challenges a design, plan, or idea using Socratic questioning and devil's-advocate critique to surface hidden assumptions and weaknesses.",
-  "tags": ["special"],
-  "author": "alex-gagnon",
+  "author": { "name": "alex-gagnon" },
   "license": "MIT",
-  "entrypoint": "SKILL.md",
-  "tier": 3,
-  "supportFiles": ["question-bank.md"],
-  "tests": "tests.md"
+  "repository": "https://github.com/alex-gagnon/sdet-marketplace",
+  "tags": ["special"]
 }

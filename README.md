@@ -1,96 +1,86 @@
 # SDET Marketplace
 
-A marketplace of Claude Code plugins — skills, agents, and MCP servers — for common software development and testing workflows. Plugins are organized by type and registered in `marketplace.json`.
+A marketplace of Claude Code plugins — skills, agents, and MCP servers — for common software development and testing workflows.
 
-## Plugin Types
+## Installation
 
-| Type | Directory | Entrypoint | Invocation |
-|------|-----------|------------|------------|
-| **Skill** | `skills/<name>/` | `SKILL.md` | Slash command (e.g., `/source-control`) |
-| **Agent** | `agents/<name>/` | `AGENT.md` | Agent tool or direct reference |
-| **MCP** | `mcps/<name>/` | `MCP.md` | MCP server configuration |
+Add this marketplace to Claude Code:
+
+```bash
+/plugin marketplace add https://github.com/alex-gagnon/sdet-marketplace
+```
+
+Or for local development:
+
+```bash
+/plugin marketplace add ./path/to/sdet-marketplace
+```
 
 ## Available Plugins
 
 ### Skills
 
 | Skill | Command | Description | Support Files |
-|---|---|---|---|
-| source-control | `/source-control` | Handles git workflow — routes to commit, branch, or diff summary based on context. | commit, branch, summarize-diff |
-| review-pr | `/review-pr` | Reviews a pull request for logic errors, security issues, test coverage, and style — producing structured inline feedback. | `checklist.md` |
-| simplify | `/simplify` | Refactors a code block or file to reduce complexity, improve readability, and eliminate redundancy without changing behavior. | `patterns.md` |
-| add-tests | `/add-tests` | Generates tests for an existing function or module, covering happy paths, edge cases, and error conditions. | `test-strategies.md` |
-| document | `/document` | Adds or improves inline documentation, docstrings, and README sections for a function, module, or project. | `templates.md` |
-| explain | `/explain` | Explains a piece of code, architecture decision, or technical concept in plain language calibrated to the user's apparent expertise level. | — |
-| grill | `/grill` | Challenges a design, plan, or idea using Socratic questioning and devil's-advocate critique to surface hidden assumptions and weaknesses. | `question-bank.md` |
-| test | `/test` | Runs quality evaluations against one or all skills using their tests.md fixture files, scoring format compliance and semantic correctness. | — |
+|-------|---------|-------------|---------------|
+| source-control | `/source-control` | Git workflow — routes to commit, branch, or diff summary based on context. | commit, branch, summarize-diff |
+| review-pr | `/review-pr` | Reviews a pull request for logic errors, security issues, test coverage, and style. | checklist.md |
+| simplify | `/simplify` | Refactors code to reduce complexity and improve readability without changing behavior. | patterns.md |
+| add-tests | `/add-tests` | Generates tests covering happy paths, edge cases, and error conditions. | test-strategies.md |
+| document | `/document` | Adds or improves inline documentation, docstrings, and README sections. | templates.md |
+| explain | `/explain` | Explains code or concepts in plain language calibrated to the user's expertise level. | — |
+| grill | `/grill` | Challenges a design using Socratic questioning to surface hidden assumptions. | question-bank.md |
+| test | `/test` | Runs quality evaluations against plugins using their tests.md fixture files. | — |
 
 ### Agents
 
 | Agent | Description |
-|---|---|
-| plugin-architect | Assists with designing and scaffolding new marketplace plugins (skills, agents, and MCP servers) following marketplace conventions. |
+|-------|-------------|
+| plugin-architect | Designs and scaffolds new marketplace plugins following official conventions. |
 
 ### MCP Servers
 
-_No MCP servers yet. Use the plugin-architect agent to design one._
+_None yet. Use the plugin-architect agent to design one._
 
-## Marketplace Structure
+## Repository Structure
 
 ```
 sdet-marketplace/
-├── marketplace.json          # Central plugin registry
+├── .claude-plugin/
+│   └── marketplace.json     # Marketplace catalog (all plugins registered here)
 ├── skills/
-│   └── <skill-name>/
-│       ├── plugin.json       # Plugin metadata
-│       ├── SKILL.md          # Entrypoint (prompt)
-│       ├── tests.md          # Test scenarios and rubric
-│       └── *.md              # Support files (Tier 3)
+│   └── <name>/
+│       ├── SKILL.md         # Entrypoint
+│       ├── plugin.json      # Plugin metadata
+│       ├── tests.md         # Test scenarios and rubric
+│       └── *.md             # Support files
 ├── agents/
-│   └── <agent-name>/
-│       ├── plugin.json
+│   └── <name>/
 │       ├── AGENT.md
+│       ├── plugin.json
 │       └── tests.md
 └── mcps/
-    └── <mcp-name>/
-        ├── plugin.json
+    └── <name>/
         ├── MCP.md
+        ├── plugin.json
         └── tests.md
 ```
 
 ## Testing
 
-Each plugin has a `tests.md` file with scenarios, rubrics, and golden outputs. Two ways to test:
+Each plugin has a `tests.md` with scenarios, rubrics, and golden outputs.
 
-**Semantic quality (LLM-as-judge)** — run the `/test` skill:
+**Semantic quality (LLM-as-judge):**
 ```
 /test                  # evaluate all skills
 /test source-control   # evaluate one skill
 ```
 
-**Format/schema assertions (CI)** — run promptfoo:
+**Format assertions (CI):**
 ```bash
-npx promptfoo eval           # run all format assertions
-npx promptfoo eval --ci      # CI mode (exits non-zero on failure)
-```
-
-## Installation
-
-Clone the repo and point Claude Code's `skillsDirectory` at the `skills/` folder:
-
-```jsonc
-// ~/.claude/settings.json
-{
-  "skillsDirectory": "/path/to/this/repo/skills"
-}
-```
-
-Or symlink:
-
-```bash
-ln -s /path/to/this/repo/skills ~/.claude/skills
+npx promptfoo eval
+npx promptfoo eval --ci
 ```
 
 ## Adding a Plugin
 
-See [CLAUDE.md](./CLAUDE.md) for conventions, or use the **plugin-architect** agent to interactively design and scaffold a new plugin.
+See [CLAUDE.md](./CLAUDE.md) for conventions, or invoke the **plugin-architect** agent to interactively design and scaffold a new plugin.

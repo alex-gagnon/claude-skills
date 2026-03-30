@@ -1,13 +1,9 @@
 {
   "name": "document",
-  "type": "skill",
   "version": "1.0.0",
   "description": "Adds or improves inline documentation, docstrings, and README sections for a function, module, or project.",
-  "tags": ["docs"],
-  "author": "alex-gagnon",
+  "author": { "name": "alex-gagnon" },
   "license": "MIT",
-  "entrypoint": "SKILL.md",
-  "tier": 3,
-  "supportFiles": ["templates.md"],
-  "tests": "tests.md"
+  "repository": "https://github.com/alex-gagnon/sdet-marketplace",
+  "tags": ["docs"]
 }
