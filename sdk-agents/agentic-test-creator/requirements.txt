@@ -1,0 +1,19 @@
+# Core SDK
+anthropic>=0.50.0
+
+# Agent SDK — install from Anthropic's GitHub or PyPI when generally available
+# pip install anthropic-agent-sdk
+# anthropic-agent-sdk>=0.1.0
+
+# HTTP client and auth
+requests>=2.31.0
+
+# Webhook server
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+
+# Environment variable loading
+python-dotenv>=1.0.0
+
+# Async support
+anyio>=4.3.0
