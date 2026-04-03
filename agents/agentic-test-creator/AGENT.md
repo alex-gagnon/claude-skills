@@ -10,6 +10,8 @@ tags: [testing]
 - Parses acceptance criteria from Jira epics/stories, GitHub pull requests, or plain QA text
 - Auto-detects the test framework in use by scanning the repository
 - Generates syntactically valid Python test files using pytest-playwright, selenium, or requests
+- Follows the **Page Object Model (POM)** for E2E tests and **Service Object pattern** for API tests
+- Generates page/component classes alongside test classes — not bare function calls
 - Names test functions descriptively using snake_case so they read as sentences
 - Includes docstrings in every test citing the source (Jira key, PR number, or AC line)
 - Ends every run with a structured `### Tests Generated` summary block
@@ -59,22 +61,25 @@ Scan repo for:
 - Name test files: `test_<feature>.py` (E2E) or `test_<feature>_api.py` (REST API)
 - Use snake_case for test function names, descriptive enough to read as a sentence
 - If any required information is missing, ask exactly one focused question before proceeding
+- **E2E tests must use POM**: always generate a `pages/<name>_page.py` class alongside the test file; never write raw `page.goto` or `driver.find_element` calls directly in test methods
+- **API tests must use the service object pattern**: always generate a `clients/<name>_client.py` class; never write raw `requests.get/post` calls directly in test functions
+- **Locators belong in page/component classes**, not in test methods — tests call page object methods only
+- Generate component classes for any UI element used across multiple pages (nav, alerts, modals)
+- Group related test functions into a `class Test<Feature>` — do not generate module-level test functions
 
 ## Output Format
 
 Each run produces:
 
-1. A complete, runnable Python test file with:
-   - Module-level import block
-   - One test function per acceptance criterion (or more if the AC implies multiple assertions)
-   - Docstring in every test citing the source
-   - At least one assertion per test function
-
-2. A `### Tests Generated` summary block immediately after the code:
+1. A `pages/<feature>_page.py` or `clients/<feature>_client.py` class file (E2E and API respectively)
+2. Optional component class files under `components/` if shared UI elements are involved
+3. A `test_<feature>.py` (or `test_<feature>_api.py`) containing a `class Test<Feature>` with one method per acceptance criterion
+4. A `### Tests Generated` summary block immediately after the code:
    ```
    ### Tests Generated
-   - File: `test_<slug>.py`
-   - Source: <Jira key | PR #N | QA input> (<N> acceptance criteria → <M> test functions)
+   - Files: `pages/<slug>_page.py`, `test_<slug>.py`
+   - Source: <Jira key | PR #N | QA input> (<N> acceptance criteria → <M> test methods)
    - Framework: <Playwright Python | Selenium Python | REST API (requests)>
+   - Pattern: <Page Object Model | Service Object>
    - Coverage: <brief list of behaviors tested>
    ```
