@@ -66,6 +66,20 @@
       "description": "Assists with designing and scaffolding new marketplace plugins (skills, agents, and MCP servers) following marketplace conventions.",
       "version": "1.0.0",
       "tags": ["special", "design"]
+    },
+    {
+      "name": "agentic-test-creator",
+      "source": "./agents/agentic-test-creator",
+      "description": "Generates Playwright, Selenium, or REST API tests in Python from Jira epics, pull requests, or QA engineer acceptance criteria.",
+      "version": "1.0.0",
+      "tags": ["testing"]
+    },
+    {
+      "name": "jira",
+      "source": "./mcps/jira",
+      "description": "MCP server that exposes Jira epics and stories as callable tools for test generation agents.",
+      "version": "1.0.0",
+      "tags": ["testing"]
     }
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "name": "agentic-test-creator",
+  "version": "1.0.0",
+  "description": "Generates Playwright, Selenium, or REST API tests in Python from Jira epics, pull requests, or QA engineer acceptance criteria.",
+  "author": {
+    "name": "alex-gagnon"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/alex-gagnon/sdet-marketplace",
+  "tags": ["testing"]
+}

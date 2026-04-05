@@ -36,10 +36,13 @@ Or for local development:
 | Agent | Description |
 |-------|-------------|
 | plugin-architect | Designs and scaffolds new marketplace plugins following official conventions. |
+| agentic-test-creator | Generates Playwright, Selenium, or REST API tests in Python from Jira epics, PRs, or QA acceptance criteria. |
 
 ### MCP Servers
 
-_None yet. Use the plugin-architect agent to design one._
+| MCP | Description | Support Files |
+|-----|-------------|---------------|
+| jira | Exposes Jira epics and stories as callable tools (`get_epic`, `list_stories`, `get_story`, `search_issues`). | server.py, jira_client.py, mock_jira_server.py |
 
 ## Repository Structure
 

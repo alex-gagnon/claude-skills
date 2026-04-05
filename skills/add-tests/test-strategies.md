@@ -103,3 +103,50 @@ end
 - Use `subject` for the object under test
 - Use `shared_examples` for behavior shared across multiple describes
 - Prefer `expect(x).to eq(y)` over `x.should eq(y)`
+
+## Playwright Python (pytest-playwright)
+
+```python
+from playwright.sync_api import Page, expect
+
+def test_element_visible(page: Page):
+    page.goto("/path")
+    expect(page.get_by_role("button", name="Submit")).to_be_visible()
+
+def test_navigation(page: Page):
+    page.goto("/login")
+    page.get_by_label("Email").fill("user@example.com")
+    page.get_by_role("button", name="Log in").click()
+    expect(page).to_have_url("/dashboard")
+```
+
+- Use `get_by_role`, `get_by_label`, `get_by_text` over CSS selectors
+- `expect(locator).to_be_visible()` / `.to_have_text()` / `.to_have_url()` for assertions
+- Use `conftest.py` to configure `base_url` and browser fixtures
+- Async variant: use `from playwright.async_api import async_playwright` with `pytest-asyncio`
+
+## Selenium Python (pytest + selenium)
+
+```python
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+def test_element_visible(driver, base_url):
+    driver.get(f"{base_url}/path")
+    element = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.CSS_SELECTOR, "button[type='submit']"))
+    )
+    assert element.is_displayed()
+
+def test_navigation(driver, base_url):
+    driver.get(f"{base_url}/login")
+    driver.find_element(By.CSS_SELECTOR, "input[aria-label='Email']").send_keys("user@example.com")
+    driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+    WebDriverWait(driver, 10).until(EC.url_contains("/dashboard"))
+```
+
+- Always use `WebDriverWait` — never `time.sleep`
+- Prefer CSS selectors over XPath for readability
+- Use `conftest.py` to set up headless Chrome: `options.add_argument("--headless")`
+- Fixtures: `driver` (session or function scope), `base_url` from env or config
