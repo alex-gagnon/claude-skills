@@ -1,4 +1,4 @@
-# SDET Marketplace
+# Personal Marketplace
 
 A marketplace of Claude Code plugins organized as domain toolkits — skills, agents, Agent SDK loops, and MCP servers for software development and testing workflows.
 
@@ -7,13 +7,13 @@ A marketplace of Claude Code plugins organized as domain toolkits — skills, ag
 Add this marketplace to Claude Code:
 
 ```bash
-/plugin marketplace add https://github.com/alex-gagnon/sdet-marketplace
+/plugin marketplace add https://github.com/alex-gagnon/personal-marketplace
 ```
 
 Or for local development:
 
 ```bash
-/plugin marketplace add ./path/to/sdet-marketplace
+/plugin marketplace add ./path/to/personal-marketplace
 ```
 
 ## Toolkits
@@ -67,7 +67,7 @@ Challenges designs, plans, and ideas with Socratic questioning and devil's-advoc
 ## Repository Structure
 
 ```
-sdet-marketplace/
+personal-marketplace/
 ├── .claude-plugin/
 │   └── marketplace.json          # Top-level toolkit catalog
 ├── plugins/

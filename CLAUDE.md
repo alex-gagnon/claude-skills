@@ -1,4 +1,4 @@
-# CLAUDE.md — SDET Marketplace
+# CLAUDE.md — Personal Marketplace
 
 This repository is a marketplace of Claude Code plugins organized as domain toolkits. All toolkits are registered in `.claude-plugin/marketplace.json`. Each toolkit lives under `plugins/<toolkit-name>/` and has its own `.claude-plugin/plugin.json`. Within a toolkit, capabilities are organized by type: `skills/`, `agents/`, `sdk/`, `mcps/`. For the full catalog, see README.md.
 

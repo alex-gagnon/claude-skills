@@ -2,7 +2,7 @@
   "name": "personal-marketplace",
   "description": "A marketplace of Claude Code plugins — skills, agents, and MCP servers for software development and testing workflows.",
   "owner": { "name": "alex-gagnon" },
-  "homepage": "https://github.com/alex-gagnon/sdet-marketplace",
+  "homepage": "https://github.com/alex-gagnon/personal-marketplace",
   "plugins": [
     {
       "name": "code-review-tools",
