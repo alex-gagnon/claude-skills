@@ -38,6 +38,13 @@
       "description": "Challenges a design, plan, or idea using Socratic questioning and devil's-advocate critique to surface hidden assumptions and weaknesses.",
       "version": "1.0.0",
       "tags": ["special"]
+    },
+    {
+      "name": "api-dev",
+      "source": "./plugins/api-dev",
+      "description": "API development agent for Python/FastAPI projects — TDD, feature implementation, code review, and multi-step agentic workflows.",
+      "version": "1.0.0",
+      "tags": ["api", "backend", "testing", "quality"]
     }
   ]
 }
