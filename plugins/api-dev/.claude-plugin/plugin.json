@@ -1,0 +1,9 @@
+{
+  "name": "api-dev",
+  "version": "1.0.0",
+  "description": "API development agent for Python/FastAPI projects — TDD, feature implementation, code review, and multi-step agentic workflows.",
+  "author": { "name": "alex-gagnon" },
+  "license": "MIT",
+  "repository": "https://github.com/alex-gagnon/personal-marketplace",
+  "tags": ["api", "backend", "testing", "quality"]
+}
